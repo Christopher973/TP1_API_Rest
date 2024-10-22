@@ -1,27 +1,195 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Ma 1ère API",
+        "title": "TP1 - API REST (documentation)",
+        "description": "API REST pour la gestion des produits",
         "contact": {
-            "email": "bob.marley@gmail.com"
+            "name": "Christopher Marie-Angélique",
+            "email": "christopher.marieangelique.pro@gmail.com"
         },
         "version": "1.0.0"
     },
+    "servers": [
+        {
+            "url": "http://localhost/TP1_API_Rest/api/v1.0",
+            "description": "Serveur local"
+        }
+    ],
     "paths": {
-        "/LabREST_03/api/produit/list": {
-            "post": {
-                "summary": "Création d'un produit",
+        "/produit/list": {
+            "get": {
+                "summary": "Récupérer tous les produits",
                 "responses": {
                     "200": {
-                        "description": "Création d'un produit à partir des données envoyées"
+                        "description": "Liste de tous les produits",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Produit"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Aucun produit trouvé"
                     },
                     "503": {
                         "description": "Le service n'est pas disponible"
-                    },
-                    "default": {
-                        "description": "Une erreur non prévue"
                     }
                 }
+            }
+        },
+        "/produit/listone/{id}": {
+            "get": {
+                "summary": "Récupérer un produit par son ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Détails du produit",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Produit"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Produit non trouvé"
+                    }
+                }
+            }
+        },
+        "/produit/new": {
+            "post": {
+                "summary": "Créer un nouveau produit",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NouveauProduit"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Produit créé avec succès"
+                    },
+                    "400": {
+                        "description": "Données invalides"
+                    },
+                    "503": {
+                        "description": "Le service n'est pas disponible"
+                    }
+                }
+            }
+        },
+        "/produit/update": {
+            "put": {
+                "summary": "Modifier un produit existant",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Produit"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Produit modifié avec succès"
+                    },
+                    "404": {
+                        "description": "Produit non trouvé"
+                    },
+                    "503": {
+                        "description": "Le service n'est pas disponible"
+                    }
+                }
+            }
+        },
+        "/produit/delete/{id}": {
+            "delete": {
+                "summary": "Supprimer un produit",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Produit supprimé avec succès"
+                    },
+                    "404": {
+                        "description": "Produit non trouvé"
+                    },
+                    "503": {
+                        "description": "Le service n'est pas disponible"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Produit": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "nom": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "prix": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "date_creation": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "NouveauProduit": {
+                "type": "object",
+                "properties": {
+                    "nom": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "prix": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                },
+                "required": ["nom", "description", "prix"]
             }
         }
     }
