@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Config\\": "config/",
+            "Modele\\": "modele/"
+        }
+    },
+    "require": {
+        "zircote/swagger-php": "^4.11"
+    }
+}

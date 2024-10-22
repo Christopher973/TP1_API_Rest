@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Produits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-6 text-center text-blue-600">Gestion des Produits</h1>
+        
+        <!-- Formulaire d'ajout de produit -->
+        <div class="mb-8 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Ajouter un produit</h2>
+            <form id="addProductForm" class="space-y-4">
+                <input type="text" id="nom" placeholder="Nom du produit" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                <textarea id="description" placeholder="Description" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required></textarea>
+                <input type="number" id="prix" placeholder="Prix" step="0.01" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-300">Ajouter</button>
+            </form>
+        </div>
+
+        <!-- Liste des produits -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Liste des produits</h2>
+            <ul id="productList" class="space-y-4"></ul>
+        </div>
+    </div>
+
+    <script src="js/Apifetch.js"></script>
+</body>
+</html>

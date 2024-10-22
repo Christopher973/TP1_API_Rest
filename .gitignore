@@ -1,0 +1,53 @@
+# Dossiers générés par Composer
+/vendor/
+
+# Fichiers de configuration spécifiques à l'environnement
+.env
+
+# Fichiers de cache et de logs
+/cache/
+/logs/
+
+# Fichiers de configuration IDE
+.idea/
+.vscode/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de configuration PHP
+php.ini
+
+# Fichiers de dépendances
+composer.lock
+
+# Fichiers de build
+/build/
+
+# Fichiers temporaires
+*.tmp
+*.swp
+*.bak
+
+# Fichiers de base de données
+*.sqlite
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+
+# Dossier public (si vous avez un dossier public distinct)
+/public/assets/
+
+# Fichiers de configuration spécifiques au serveur
+.htaccess
+
+# Fichiers de documentation générés automatiquement
+/docs/
+
+# Fichiers de test et de couverture
+/tests/coverage/
+
+# Fichiers spécifiques à votre projet (à adapter selon vos besoins)
+config.php
