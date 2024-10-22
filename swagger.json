@@ -1,0 +1,28 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Ma 1ère API",
+        "contact": {
+            "email": "bob.marley@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/LabREST_03/api/produit/list": {
+            "post": {
+                "summary": "Création d'un produit",
+                "responses": {
+                    "200": {
+                        "description": "Création d'un produit à partir des données envoyées"
+                    },
+                    "503": {
+                        "description": "Le service n'est pas disponible"
+                    },
+                    "default": {
+                        "description": "Une erreur non prévue"
+                    }
+                }
+            }
+        }
+    }
+}

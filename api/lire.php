@@ -1,4 +1,26 @@
 <?php
+use OpenApi\Annotations as OA;
+/**
+* @OA\Info(title="Mon API", version="1.0.0")
+*/
+/**
+* @OA\Post(
+* path="/LabREST_03/api/produit/new",
+* summary="Création d'un produit",
+* @OA\Response(
+* response=200,
+* description="Création d'un produit à partir des données envoyées"
+* ),
+* @OA\Response(
+* response=503,
+* description="Le service n'est pas disponible"
+* ),
+* @OA\Response(
+* response="default",
+* description="Une erreur non prévue"
+* )
+* )
+*/
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
