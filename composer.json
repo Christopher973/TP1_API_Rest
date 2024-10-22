@@ -4,5 +4,8 @@
             "Config\\": "config/",
             "Modele\\": "modele/"
         }
+    },
+    "require": {
+        "zircote/swagger-php": "^4.11"
     }
 }

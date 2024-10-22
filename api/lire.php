@@ -1,4 +1,5 @@
 <?php
+use OpenApi\Annotations as OA;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
