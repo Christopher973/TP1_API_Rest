@@ -1,6 +1,6 @@
 <?php
 // URL de l'API (remplacez 123 par un ID valide de produit)
-$url = "http://localhost/TP1_API_Rest/api/v1.0/produit/update/";
+$url = "http://localhost/Marie-Angelique_apiRestPHP_TP3/api/v1.0/produit/update/";
 
 // Donnée à transmettre au format JSON : nouveau produit
 $data = json_encode(array(

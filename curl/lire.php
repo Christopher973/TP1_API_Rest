@@ -1,6 +1,6 @@
 <?php
 // Définir l’URL
-$url = "http://localhost/TP1_API_Rest/api/v1.0/produit/list";
+$url = "http://localhost/Marie-Angelique_apiRestPHP_TP3/api/v1.0/";
 // Donnée à transmettre au format JSON : id du produit à supprimer
 $data = json_encode(array('id' => ''));
 // Initialiser une session CURL

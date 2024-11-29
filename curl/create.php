@@ -1,6 +1,6 @@
 <?php
 // Définir l'URL
-$url = "http://localhost/TP1_API_Rest/api/v1.0/produit/new/";  // Notez le changement d'URL
+$url = "http://localhost/Marie-Angelique_apiRestPHP_TP3/api/v1.0/produit/new/";  // Notez le changement d'URL
 
 // Donnée à transmettre au format JSON : nouveau produit
 $data = json_encode(array(

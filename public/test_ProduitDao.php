@@ -1,7 +1,11 @@
 <?php
-require_once 'config/Connexion.php';
-require_once 'modele/entities/Produit.php';
-require_once 'modele/dao/ProduitDao.php';
+
+use Modele\Dao\ProduitDao;
+use Modele\Entities\Produit;
+
+require_once '../config/Connexion.php';
+require_once '../modele/entities/Produit.php';
+require_once '../modele/dao/ProduitDao.php';
 
 // Création d'une instance de ProduitDao
 $produitDao = new ProduitDao();

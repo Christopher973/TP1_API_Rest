@@ -1,5 +1,8 @@
 <?php
-require_once 'config/Connexion.php';
+
+use Config\Connexion;
+
+require_once '../config/Connexion.php';
 
 try {
     $connexion = Connexion::getConnexion();

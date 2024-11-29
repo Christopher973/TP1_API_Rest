@@ -15,7 +15,7 @@ class Connexion {
         if (self::$connexion === null) {
             try {
                 self::$connexion = new PDO(
-                    'mysql:host=localhost;dbname=tp1_api_rest;charset=utf8',
+                    'mysql:host=localhost;dbname=db_labrest;charset=utf8',
                     'root',  
                     ''       
                 );
