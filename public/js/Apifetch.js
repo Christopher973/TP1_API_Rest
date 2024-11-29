@@ -1,6 +1,60 @@
 // URL de base de l'API
 const API_BASE_URL = 'http://localhost/Marie-Angelique_apiRestPHP_TP3/api/v1.0';
 
+// Fonction pour inscrire un nouvel utilisateur
+async function registerUser(user) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/register/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        });
+
+        if (!response.ok) {
+            throw new Error('Erreur lors de l\'inscription');
+        }
+
+        const result = await response.json();
+        if (result.message) {
+            alert(result.message); // Afficher le message de succès
+        }
+    } catch (error) {
+        console.error('Erreur:', error);
+        alert('Impossible de s\'inscrire');
+    }
+}
+
+// Fonction pour connecter un utilisateur et obtenir un token JWT
+async function loginUser(user) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/login/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        });
+
+        if (!response.ok) {
+            throw new Error('Erreur lors de la connexion');
+        }
+
+        const result = await response.json();
+        if (result.token) {
+            // Stocker le token JWT dans le localStorage
+            localStorage.setItem('token', result.token);
+            alert('Connexion réussie');
+        } else {
+            alert('Token manquant dans la réponse');
+        }
+    } catch (error) {
+        console.error('Erreur:', error);
+        alert('Impossible de se connecter');
+    }
+}
+
 // Fonction pour récupérer tous les produits
 async function getAllProducts() {
     try {

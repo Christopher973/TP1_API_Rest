@@ -2,7 +2,8 @@
     "autoload": {
         "psr-4": {
             "Config\\": "config/",
-            "Modele\\": "modele/"
+            "Modele\\": "modele/",
+            "Services\\": "services/"
         }
     },
     "require": {
